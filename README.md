@@ -86,3 +86,13 @@ The memory consumption stack trace was made by using <a href="https://pypi.org/p
 
 - [X] Fastecdsa support for faster public key creation
 
+Key Changes
+CuPy Integration: Added CuPy for GPU computations.
+ECC on GPU: Adapted private_key_to_public_key to perform elliptic curve point multiplication using CuPy arrays.
+Public Key Conversion: Ensured results from GPU computation are transferred back to CPU memory for further processing.
+Dependencies
+Install CuPy: pip install cupy-cuda11x (replace 11x with your CUDA version, e.g., 110, 120).
+Ensure that the NVIDIA CUDA toolkit is installed and properly configured.
+Notes
+ECC operations are complex and might need custom GPU implementations. This example assumes simple point multiplication; adapt it for precise curve parameters if needed.
+Test the GPU acceleration to ensure compatibility and performance improvements.
